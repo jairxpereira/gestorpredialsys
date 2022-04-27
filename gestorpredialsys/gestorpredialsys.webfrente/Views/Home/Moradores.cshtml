@@ -1,0 +1,36 @@
+﻿@using gestorpredialsys.entidades;
+@model IEnumerable<Morador>
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+<thead>
+<tr>
+<th>id</th>
+<th>Nome</th>
+<th>id_familia</th>
+<th>idade</th>
+</tr>
+</thead>
+<tbody>
+@if (Model is not null)
+{
+@foreach (Morador morador in Model)
+{
+<tr>
+<td>
+@morador.Id
+</td>
+<td>
+@morador.Nome
+</td>
+<td>
+@morador.Id_familia
+</td>
+<td>
+@morador.Idade
+</td>
+</tr>
+}
+}
+</tbody>
+</table>

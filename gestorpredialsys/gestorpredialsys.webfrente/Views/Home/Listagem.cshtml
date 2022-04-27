@@ -1,0 +1,80 @@
+﻿@model HomeListagemViewModel;
+@using gestorpredialsys.entidades;
+@{
+    ViewData["Title"] = "Listagem de dados";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sistema Gestor predial</h1>
+   </div>
+
+<br/><br/>
+<h2>Lista de moradores</h2>
+<p>Estes dados são obtidos através da biblioteca de classes gestorpredialsys.entidades</p>
+
+@if (Model is not null)
+{
+    
+
+<table class="table">
+    <thead>
+        <th>id</th><th>nome</th><th>id_familia</th><th>idade</th>
+    </thead>
+
+
+
+@foreach (Morador morador in Model.Moradores)
+{         <tr>
+        <td>@morador.Id</td>
+        <td>@morador.Nome</td>
+        <td>@morador.Id_familia</td>
+        <td>@morador.Idade</td>
+        </tr>
+}
+</table>
+
+
+<h2>Lista de condomínios</h2>
+
+<table class="table">
+    <thead>
+        <th>id</th><th>nome</th><th>bairro</th><th>area_total</th><th>valor_iptu</th>
+    </thead>
+
+
+
+@foreach (Condominio cond in Model.Condominios)
+{         <tr>
+        <td>@cond.Id</td>
+        <td>@cond.Nome</td>
+        <td>@cond.Bairro</td>   
+        <td>@cond.Area_total</td>  
+        <td>@cond.Valor_iptu</td>  
+        </tr>
+}
+</table>
+
+<h2>Lista de famílias</h2>
+
+<table class="table">
+    <thead>
+        <th>id</th><th>nome</th><th>id_condominio</th><th>apto</th><th>area_apto</th><th>fracao_ideal</th><th>valor_iptu_prop</th>
+    </thead>
+
+
+
+@foreach (Familia fam in Model.Familias)
+{         <tr>
+        <td>@fam.Id</td>
+        <td>@fam.Nome</td>
+        <td>@fam.Id_condominio</td> 
+        <td>@fam.Apto</td>
+        <td>@fam.Area_apto</td>
+        <td>@fam.Fracao_ideal</td>
+        <td>@fam.Valor_iptu_prop</td>
+        </tr>
+}
+</table>
+
+
+}

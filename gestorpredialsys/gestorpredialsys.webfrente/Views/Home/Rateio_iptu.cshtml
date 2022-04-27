@@ -1,0 +1,28 @@
+﻿@using gestorpredialsys.entidades;
+@model HomeRateioIptuViewModel;
+@{
+    String iptu_formatado = "";
+    String iptu_cond_formatado = "";
+    if (Model.Valor_iptu_prop != -1)
+    {
+    iptu_formatado = String.Format("{0:N2}", Model.Valor_iptu_prop);
+     iptu_cond_formatado = String.Format("{0:N2}", Model.condominio.Valor_iptu);
+    }    
+}
+    
+
+
+
+<h2>Valor do seu iptu a pagar: </h2>
+
+@if (Model.Valor_iptu_prop != -1 )
+{
+<p>R$ @iptu_formatado </p>
+<p>Apartamento: @Model.familia.Apto</p>
+<p>Familia: @Model.familia.Nome</p>
+<p>Área do apartamento: @Model.familia.Area_apto</p>
+<p>Área total do condomínio: @Model.condominio.Area_total</p>
+<p>Valor do iptu total do condomínio: R$ @iptu_cond_formatado</p>
+}
+
+<p>@Model.mensagem</p>

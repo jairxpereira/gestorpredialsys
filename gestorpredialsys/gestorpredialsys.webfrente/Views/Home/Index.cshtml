@@ -1,0 +1,21 @@
+﻿@using gestorpredialsys.entidades;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sistema Gestor predial</h1>
+   </div>
+
+<a href="/Home/Moradores">Lista de moradores via webapi</a>
+<p>Rode primeiro o projeto gestorpredialsys.webapi antes de clicar no link acima.</p>
+
+<a href="/Home/Listagem">Lista dados do banco de dados via Ms SqlServer/Entity Framework 6.0</a>
+<p>Garanta que o banco de dados dbgestaopredial está instalado no seu SqlServer</p>
+
+<h3>Calcula iptu proporcional do apartamento</h3>
+<form asp-action="Rateio_iptu" method="GET">
+<input name="apto" placeholder="Entre com um apartamento válido" />
+<input type="submit" />
+</form>
+

@@ -1,0 +1,11 @@
+17:55 27/04/2022
+- O método HTTP PUT dos controladores e update() do
+entity framework não funcionou!
+
+
+- Não conseguir finalizar uma consulta sql, relatório de idade
+> 50 anos agrupado por condomínio.
+
+
+Vou pesquisar a solução destas questões.
+
