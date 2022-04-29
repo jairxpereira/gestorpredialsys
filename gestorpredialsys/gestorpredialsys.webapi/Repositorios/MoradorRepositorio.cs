@@ -51,9 +51,14 @@ public class MoradorRepositorio : IMoradorRepositorio
     public async Task<Morador?> atualizarMoradorAsync(int id, Morador m)
     {
 
-        // Atualizar no banco de dados - *** essa função falhou ***
-        db.Entry(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-        db.Moradores.Update(m);       
+        Morador existente = await obterMoradorAsync(id);
+        existente.Idade = m.Idade;
+        existente.Id_familia = m.Id_familia;
+        existente.Nome = m.Nome;
+        
+        db.Entry(existente).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+
         int afetado = await db.SaveChangesAsync();
         if (afetado == 1)
         {

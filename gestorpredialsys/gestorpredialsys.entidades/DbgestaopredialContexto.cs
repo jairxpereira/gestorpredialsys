@@ -10,7 +10,7 @@ namespace gestorpredialsys.entidades
 {
 
 
-    // this manages the connection to the database
+    // isto gerencia a conexão com o banco de dados
     public class DbgestaopredialContexto : DbContext
     {
         public DbSet<Morador>? Moradores { get; set; }

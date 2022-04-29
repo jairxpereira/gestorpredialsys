@@ -52,9 +52,16 @@ public class FamiliaRepositorio : IFamiliaRepositorio
     {
 
         // Atualizar no banco de dados - *** essa função falhou ***
-        fam.Id = id;
-        db.Entry(fam).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-        db.Familias.Update(fam);
+        Familia existente = await obterFamiliaAsync(id);
+        existente.Area_apto = fam.Area_apto;
+        existente.Apto = fam.Apto;
+        existente.Valor_iptu_prop = fam.Valor_iptu_prop;
+        existente.Fracao_ideal = fam.Fracao_ideal;
+        existente.Id_condominio = fam.Id_condominio;
+        existente.Nome = fam.Nome;
+    
+        db.Entry(existente).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+        
         int afetado = await db.SaveChangesAsync();
         if (afetado == 1)
         {

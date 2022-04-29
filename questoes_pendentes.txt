@@ -1,11 +1,14 @@
-17:55 27/04/2022
+17:55 27/04/2022 
+
 - O método HTTP PUT dos controladores e update() do
 entity framework não funcionou!
-
+09:02 29/04/2022 Problema resolvido. Agora atualizar...() dos repositórios
+está funcionando.
 
 - Não conseguir finalizar uma consulta sql, relatório de idade
 > 50 anos agrupado por condomínio.
 
 
-Vou pesquisar a solução destas questões.
+Vou pesquisar a solução destas questões. Uma já foi resolvida.
+Falta apenas a do sql.
 

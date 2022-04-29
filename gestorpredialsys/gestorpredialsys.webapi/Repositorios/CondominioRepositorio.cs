@@ -52,11 +52,14 @@ public class CondominioRepositorio : ICondominioRepositorio
     {
 
         // Atualizar no banco de dados - *** essa função falhou no repositório de moradores***
-        cond.Id = id;
-        db.Entry(cond).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-        EntityEntry<Condominio> condAtualizado = db.Condominios.Update(cond);
+        Condominio existente = await obterCondominioAsync(1);
+        existente.Area_total = cond.Area_total;
+        existente.Bairro = cond.Bairro;
+        existente.Valor_iptu = cond.Valor_iptu;
+        existente.Nome = cond.Nome;        
 
-        // db.Condominios.Update(cond);
+        db.Entry(existente).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+        
         int afetado = await db.SaveChangesAsync();
         if (afetado == 1)
         {
